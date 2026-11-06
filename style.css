@@ -1,0 +1,108 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; }
+body { overflow: hidden; font-family: Arial, Helvetica, sans-serif; }
+.game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 420px;
+  overflow: hidden;
+  background: #9bd7f3;
+  isolation: isolate;
+}
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('background/background.png');
+  background-size: cover;
+  background-position: center bottom;
+}
+.player {
+  position: absolute;
+  z-index: 2;
+  left: clamp(25px, 12vw, 180px);
+  bottom: var(--player-ground-bottom, 15%);
+  width: clamp(120px, 15vw, 200px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  will-change: transform;
+}
+.block {
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  bottom: var(--ground-bottom, 20%); /* JS offsets transparent GIF padding to ground */
+  width: clamp(48px, 5.5vw, 72px);
+  height: clamp(90px, 16vh, 135px);
+  background-image: url('sprites/flame.gif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.score-board {
+  position: absolute;
+  z-index: 3;
+  top: clamp(10px, 2vh, 20px);
+  left: clamp(12px, 1.5vw, 24px);
+  display: inline-flex;
+  align-items: baseline;
+  gap: clamp(8px, 1vw, 14px);
+  max-width: calc(100% - 24px);
+  padding: 3px 12px 6px 0;
+  color: #111;
+  font-size: clamp(25px, 4vw, 44px);
+  line-height: 1.05;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px #fff;
+  white-space: nowrap;
+}
+.score-label, .score { position: static; }
+.score { min-width: 1ch; font-variant-numeric: tabular-nums; }
+.overlay {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255,255,255,.82) url('background/frontback.png') center / cover no-repeat;
+}
+.overlay[hidden] { display: none; }
+.text {
+  margin: 0 0 8px;
+  color: #d71920;
+  font-size: clamp(34px, 6vw, 72px);
+  font-weight: 800;
+}
+.frontimage { width: min(230px, 35vh); max-height: 35vh; object-fit: contain; }
+.text2, .instructions { margin: 8px 0; color: #111; font-size: clamp(18px, 2.6vw, 28px); font-weight: 700; }
+.instructions { font-size: 15px; }
+button {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 28px;
+  font-size: clamp(18px, 2.5vw, 27px);
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { filter: brightness(.92); }
+button:focus-visible { outline: 3px solid #111; outline-offset: 3px; }
+.btn2 { margin-top: 8px; color: #111; background: #f04444; }
+.end-screen h2 { margin: 0; font-size: clamp(42px, 7vw, 64px); }
+.end-screen p { margin: 8px 0 0; font-size: clamp(24px, 4vw, 38px); font-weight: 700; }
+.endScore { margin: 4px 0 12px; color: #d71920; font-size: clamp(48px, 8vw, 68px); font-weight: 800; }
+.btn { color: white; background: #1746bb; }
+.win-screen { background-color: rgba(255,255,255,.88); }
+.star { width: min(330px, 45vh); max-height: 40vh; object-fit: contain; }
+.text3 { margin: 8px 0; font-size: clamp(38px, 6vw, 54px); font-weight: 800; }
+.win-screen p { font-size: 22px; font-weight: 700; }
+.btn3 { color: #111; background: #42e5e5; }
+@media (max-height: 520px) {
+  .frontimage { width: 120px; }
+  .star { width: 150px; }
+  .overlay { gap: 2px; }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Journey of Red Hat Boy - a 2D browser game.">
+  <title>The Journey of Red Hat Boy | 2D Game</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon..png">
+</head>
+<body>
+  <main class="game" id="game" aria-label="The Journey of Red Hat Boy game">
+    <div class="background" id="background"></div>
+    <img class="player" src="sprites/Run (1).png" id="player" alt="Red Hat Boy">
+    <div class="score-board" aria-label="Game score">
+      <span class="score-label">Score</span>
+      <span class="score" id="score" aria-live="polite">0</span>
+    </div>
+
+    <section class="overlay start-screen" id="startScreen">
+      <h1 class="text">Red Hat Boy's Journey</h1>
+      <img class="frontimage" src="sprites/Jump (1).png" alt="Red Hat Boy jumping">
+      <p class="text2">Avoid the flames and survive!</p>
+      <button class="btn2" id="startButton" type="button">Start Game</button>
+      <p class="instructions">Press SPACE or ↑ to jump</p>
+    </section>
+
+    <section class="overlay end-screen" id="endScreen" aria-live="polite" hidden>
+      <h2>Game Over!</h2>
+      <p>Your score</p>
+      <div class="endScore" id="endScore">0</div>
+      <button class="btn" id="retryButton" type="button">Try Again</button>
+    </section>
+
+    <section class="overlay win-screen" id="winScreen" aria-live="polite" hidden>
+      <img src="sprites/threestar.png" class="star" alt="Three stars">
+      <h2 class="text3">You Won!</h2>
+      <p>Your score: <span id="winFinalScore">500</span></p>
+      <button class="btn3" id="playAgainButton" type="button">Play Again</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
